@@ -9,18 +9,18 @@ session_start();
 $con = new pdo_db();
 
 $profile = [];
-$sql = "SELECT school_id FROM staffs WHERE id = $_SESSION[id]";
+$sql = "SELECT id_number, CONCAT(firstname, ' ', lastname) fullname FROM account_info WHERE id_number = $_SESSION[id_number]";
 $staff = $con->getData($sql);
 
-$profile['profile']['staff'] = $_SESSION['staff'];
+$profile['fullname'] = $staff[0]['fullname'];
 
 $dir = "pictures/";
 $avatar = $dir."avatar.png";
 
-$picture = $dir.$staff[0]['school_id'].".jpg";
+$picture = $dir.$staff[0]['id_number'].".jpg";
 if (!file_exists("../".$picture)) $picture = $avatar;
 
-$profile['profile']['picture'] = $picture;
+$profile['picture'] = $picture;
 
 echo json_encode($profile);
 

@@ -1,0 +1,23 @@
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Contact No</th>
+						  <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="student in students">
+                          <td>{{student.id_number}}</td>
+                          <td>{{student.firstname}}</td>
+                          <td>{{student.lastname}}</td>
+                          <td>{{student.contact_no}}</td>
+						  <td>
+						  <a href="javascript:;" style="margin-right: 5px;" ng-click="form.student(this,student)"><i class="fa fa-edit"></i></a>
+						  <a href="javascript:;" ng-click="form.delete(this,student)"><i class="fa fa-remove"></i></a>
+						  </td>
+                        </tr>
+                      </tbody>
+                    </table>
