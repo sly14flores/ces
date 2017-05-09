@@ -1,4 +1,4 @@
-angular.module('students-module',[]).factory('form', function($compile,$timeout,$http) {
+angular.module('students-module',['bootstrap-modal']).factory('form', function($compile,$timeout,$http,bootstrapModal) {
 	
 	function form() {
 		
@@ -22,6 +22,7 @@ angular.module('students-module',[]).factory('form', function($compile,$timeout,
 			});
 			
 			if (row != null) {
+				if (scope.$id > 2) scope = scope.$parent;				
 				$http({
 				  method: 'POST',
 				  url: 'handlers/student-edit.php',
@@ -29,6 +30,7 @@ angular.module('students-module',[]).factory('form', function($compile,$timeout,
 				}).then(function mySucces(response) {
 					
 					angular.copy(response.data, scope.student);
+					scope.student.birthday = new Date(scope.student.birthday);
 					
 				}, function myError(response) {
 					 
@@ -59,19 +61,27 @@ angular.module('students-module',[]).factory('form', function($compile,$timeout,
 		
 		self.delete = function(scope,row) {
 			
+		var onOk = function() {
+			
+			if (scope.$id > 2) scope = scope.$parent;			
+			
 			$http({
 			  method: 'POST',
 			  url: 'handlers/student-delete.php',
 			  data: {id_number: [row.id_number]}
 			}).then(function mySucces(response) {
-				
+
 				self.list(scope);
 				
 			}, function myError(response) {
 				 
 			  // error
 				
-			});				
+			});
+
+		};
+
+		bootstrapModal.confirm(scope,'Confirmation','Are you sure you want to delete this record?',onOk,function() {});			
 			
 		};
 		
@@ -84,12 +94,8 @@ angular.module('students-module',[]).factory('form', function($compile,$timeout,
 			  url: 'handlers/students-list.php',
 			}).then(function mySucces(response) {
 				
-				if (scope.$id > 2) {
-					scope = scope.$parent;
-					angular.copy(response.data, scope.students);
-				} else {
-					angular.copy(response.data, scope.students);					
-				}
+				if (scope.$id > 2) scope = scope.$parent;
+				angular.copy(response.data, scope.students);
 				
 			}, function myError(response) {
 				 
