@@ -5,14 +5,38 @@ angular.module('students-module',['bootstrap-modal']).factory('form', function($
 		var self = this;
 		
 		self.data = function(scope) { // initialize data
+
+			scope.formHolder = {};		
+
+			scope.student_info = {};
+			scope.student_info.id_number = 0;
+
+			scope.academic_info = {};
 			
-			scope.student = {};
-			scope.student.id_number = 0;
-			scope.students = [];
+			scope.parental_info = {};
+
+			scope.students = []; // list			
+
+		};
+
+		self.validate = function(scope) {
+			
+			var controls = scope.formHolder.personalform.$$controls;
+			
+			angular.forEach(controls,function(elem,i) {
+				
+				if (elem.$$attr.$attr.required) {
+					
+					elem.$name.$touched = true;
+					elem.$name.$invalid = true;
+					
+				}
+				
+			});
+
+			return scope.formHolder.personalform.$valid;
 			
 		};
-		
-		var required = [];
 
 		self.student = function(scope,row) {						
 			
@@ -37,16 +61,20 @@ angular.module('students-module',['bootstrap-modal']).factory('form', function($
 				  // error
 					
 				});					
-			}
+			};					
 			
 		};
 		
 		self.save = function(scope) {
+
+			self.validate(scope);
+			
+			return;
 			
 			$http({
 			  method: 'POST',
 			  url: 'handlers/student-save.php',
-			  data: scope.student
+			  data: scope.student_info
 			}).then(function mySucces(response) {
 				
 				self.list(scope);
