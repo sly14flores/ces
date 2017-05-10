@@ -25,13 +25,8 @@ angular.module('students-module',['bootstrap-modal']).factory('form', function($
 			
 			angular.forEach(controls,function(elem,i) {
 				
-				if (elem.$$attr.$attr.required) {
-					
-					elem.$name.$touched = true;
-					elem.$name.$invalid = true;
-					
-				}
-				
+				if (elem.$$attr.$attr.required) elem.$touched = elem.$invalid;
+									
 			});
 
 			return scope.formHolder.personalform.$valid;
@@ -67,10 +62,8 @@ angular.module('students-module',['bootstrap-modal']).factory('form', function($
 		
 		self.save = function(scope) {
 
-			self.validate(scope);
-			
-			return;
-			
+			if (self.validate(scope)) return;			
+
 			$http({
 			  method: 'POST',
 			  url: 'handlers/student-save.php',
