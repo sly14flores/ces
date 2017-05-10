@@ -19,7 +19,7 @@ angular.module('students-module',['bootstrap-modal']).factory('form', function($
 
 		};
 
-		self.validate = function(scope) {
+		function validate = function(scope) {
 			
 			var controls = scope.formHolder.personalform.$$controls;
 			
@@ -62,7 +62,7 @@ angular.module('students-module',['bootstrap-modal']).factory('form', function($
 		
 		self.save = function(scope) {
 
-			if (self.validate(scope)) return;			
+			if (validate(scope)) return;			
 
 			$http({
 			  method: 'POST',
