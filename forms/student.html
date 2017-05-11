@@ -131,52 +131,61 @@
 </div>
 </div>
 <div class="row">
-<div class="col-md-5 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.elem_name.$touched && formHolder.personalform.elem_name.$invalid}">
+<div class="col-md-5 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.academicform.elem_name.$touched && formHolder.academicform.elem_name.$invalid}">
   <label>Elementary Name:</label>
   <input type="text" placeholder="Name" class="form-control" name="elem_name" required>
-  <span class="help-block" ng-show="formHolder.personalform.elem_name.$touched && formHolder.personalform.elem_name.$invalid">Boarding Contact Number is required</span>
+  <span class="help-block" ng-show="formHolder.academicform.elem_name.$touched && formHolder.academicform.elem_name.$invalid">Elementary Name is required</span>
 </div>
 
-<div class="col-md-5 col-sm-12 col-xs-12 form-group">
+<div class="col-md-5 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.elem_address.$touched && formHolder.personalform.elem_address.$invalid}">
   <label>Address:</label>
-  <input type="text" placeholder="Address" class="form-control" name="elem_address">
+  <input type="text" placeholder="Address" class="form-control" name="elem_address" required>
+   <span class="help-block" ng-show="formHolder.personalform.elem_address.$touched && formHolder.personalform.elem_address.$invalid">Address is required</span>
 </div>
 
-<div class="col-md-2 col-sm-12 col-xs-12 form-group">
+<div class="col-md-2 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.elem_year.$touched && formHolder.personalform.elem_year.$invalid}">
   <label>Year:</label>
-  <input type="text" placeholder="Year" class="form-control" name="elem_year">
+  <input type="text" placeholder="Year" class="form-control" name="elem_year" required>
+  <span class="help-block" ng-show="formHolder.personalform.elem_year.$touched && formHolder.personalform.elem_year.$invalid">Year is required</span>
 </div>
 </div>
 <div class="row">
-<div class="col-md-5 col-sm-12 col-xs-12 form-group">
+<div class="col-md-5 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.secondary_name.$touched && formHolder.personalform.secondary_name.$invalid}">
   <label>Secondary Name:</label>
-  <input type="text" placeholder="Name" class="form-control" name="secondary_name">
+  <input type="text" placeholder="Name" class="form-control" name="secondary_name" required>
+  <span class="help-block" ng-show="formHolder.personalform.secondary_name.$touched && formHolder.personalform.secondary_name.$invalid">Secondary Name is required</span>
 </div>
 
-<div class="col-md-5 col-sm-12 col-xs-12 form-group">
+<div class="col-md-5 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.secondary_address.$touched && formHolder.personalform.secondary_address.$invalid}">
   <label>Address:</label>
-  <input type="text" placeholder="Address" class="form-control" name="secondary_address">
+  <input type="text" placeholder="Address" class="form-control" name="secondary_address" required>
+  <span class="help-block" ng-show="formHolder.personalform.secondary_address.$touched && formHolder.personalform.secondary_address.$invalid">Address is required</span>
 </div>
 
-<div class="col-md-2 col-sm-12 col-xs-12 form-group">
+<div class="col-md-2 col-sm-12 col-xs-12 form-group"  ng-class="{'has-error': formHolder.personalform.secondary_year.$touched && formHolder.personalform.secondary_year.$invalid}">
   <label>Year:</label>
-  <input type="text" placeholder="Year" class="form-control" name="secondary_year">
+  <input type="text" placeholder="Year" class="form-control" name="secondary_year" required>
+  <span class="help-block" ng-show="formHolder.personalform.secondary_year.$touched && formHolder.personalform.secondary_year.$invalid">Year is required</span>
 </div>
 </div>
 <div class="row">
-<div class="col-md-5 col-sm-12 col-xs-12 form-group">
+
+<div class="col-md-5 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.tertiary_name.$touched && formHolder.personalform.tertiary_name.$invalid}">
   <label>Tertiary Name:</label>
-  <input type="text" placeholder="Name" class="form-control" name="tertiary_name">
+  <input type="text" placeholder="Name" class="form-control" name="tertiary_name" required>
+  <span class="help-block" ng-show="formHolder.personalform.tertiary_name.$touched && formHolder.personalform.tertiary_name.$invalid">Tertiary Name is required</span>
 </div>
 
-<div class="col-md-5 col-sm-12 col-xs-12 form-group">
+<div class="col-md-5 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.tertiary_address.$touched && formHolder.personalform.tertiary_address.$invalid}">
   <label>Address:</label>
-  <input type="text" placeholder="Address" class="form-control" name="tertiary_address">
+  <input type="text" placeholder="Address" class="form-control" name="tertiary_address" requried>
+  <span class="help-block" ng-show="formHolder.personalform.tertiary_address.$touched && formHolder.personalform.tertiary_address.$invalid">Address is required</span>
 </div>
 
-<div class="col-md-2 col-sm-12 col-xs-12 form-group">
+<div class="col-md-2 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.tertiary_year.$touched && formHolder.personalform.tertiary_year.$invalid}">
   <label>Year:</label>
-  <input type="text" placeholder="Year" class="form-control" name="tertiary_year">
+  <input type="text" placeholder="Year" class="form-control" name="tertiary_year" required>
+   <span class="help-block" ng-show="formHolder.personalform.tertiary_year.$touched && formHolder.personalform.tertiary_year.$invalid">Address is required</span>
 </div>
 </div>
 <div class="x_content">
@@ -187,75 +196,88 @@
 </div>
 </div>
 <div class="row">
-<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+<div class="col-md-4 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.father_name.$touched && formHolder.personalform.father_name.$invalid}">
   <label>Father Name:</label>
-  <input type="text" placeholder="Fathername" class="form-control" name="father_name">
+  <input type="text" placeholder="Fathername" class="form-control" name="father_name" required>
+  <span class="help-block" ng-show="formHolder.personalform.tertiary_year.$touched && formHolder.personalform.tertiary_year.$invalid">Father Name is required</span>
 </div>
 
-<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+<div class="col-md-4 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.father_address.$touched && formHolder.personalform.father_address.$invalid}">
   <label>Address:</label>
-  <input type="text" placeholder="Address" class="form-control" name="father_address">
+  <input type="text" placeholder="Address" class="form-control" name="father_address" required>
+  <span class="help-block" ng-show="formHolder.personalform.father_address.$touched && formHolder.personalform.father_address.$invalid">Address is required</span>
 </div>
 
-<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+<div class="col-md-4 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.father_contact_no.$touched && formHolder.personalform.father_contact_no.$invalid}">
   <label>Contact No:</label>
-  <input type="text" placeholder="Contact No" class="form-control" name="father_contact_no">
+  <input type="text" placeholder="Contact No" class="form-control" name="father_contact_no" required>
+  <span class="help-block" ng-show="formHolder.personalform.father_contact_no.$touched && formHolder.personalform.father_contact_no.$invalid">Contact Number is required</span>
 </div>
 </div>
 <div class="row">
-<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+<div class="col-md-12 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.father_occupation.$touched && formHolder.personalform.father_occupation.$invalid}">
   <label>Occupation:</label>
-  <input type="text" placeholder="Occupation" class="form-control" name="father_occupation">
+  <input type="text" placeholder="Occupation" class="form-control" name="father_occupation" required>
+  <span class="help-block" ng-show="formHolder.personalform.father_occupation.$touched && formHolder.personalform.father_occupation.$invalid">Occupation is required</span>
 </div>
 </div>
 <div class="row">
-<div class="col-md-4 col-sm-4 col-xs-12 form-group">
+<div class="col-md-4 col-sm-4 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.mother_name.$touched && formHolder.personalform.mother_name.$invalid}">
   <label>Mother Name:</label>
-  <input type="text" placeholder="Mothername" class="form-control" name="mother_name">
+  <input type="text" placeholder="Mothername" class="form-control" name="mother_name" required>
+  <span class="help-block" ng-show="formHolder.personalform.mother_name.$touched && formHolder.personalform.mother_name.$invalid">Mother Name is required</span>
 </div>
 
-<div class="col-md-4 col-sm-4 col-xs-12 form-group">
+<div class="col-md-4 col-sm-4 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.mother_address.$touched && formHolder.personalform.mother_address.$invalid}">
   <label>Address:</label>
-  <input type="text" placeholder="Address" class="form-control" name="mother_address">
+  <input type="text" placeholder="Address" class="form-control" name="mother_address" required>
+  <span class="help-block" ng-show="formHolder.personalform.mother_address.$touched && formHolder.personalform.mother_address.$invalid">Address is required</span>
 </div>
 
-<div class="col-md-4 col-sm-4 col-xs-12 form-group">
+<div class="col-md-4 col-sm-4 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.mother_contact_no.$touched && formHolder.personalform.mother_contact_no.$invalid}">
   <label>Contact No:</label>
-  <input type="text" placeholder="Contact No" class="form-control" name="mother_contact_no">
+  <input type="text" placeholder="Contact No" class="form-control" name="mother_contact_no" required>
+  <span class="help-block" ng-show="formHolder.personalform.mother_contact_no.$touched && formHolder.personalform.mother_contact_no.$invalid">Contact is required</span>
 </div>
 </div>
 <div class="row">
-<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+<div class="col-md-12 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.mother_occupation.$touched && formHolder.personalform.mother_occupation.$invalid}">
   <label>Occupation:</label>
-  <input type="text" placeholder="Occupation" class="form-control" name="mother_occupation">
+  <input type="text" placeholder="Occupation" class="form-control" name="mother_occupation" required>
+  <span class="help-block" ng-show="formHolder.personalform.mother_occupation.$touched && formHolder.personalform.mother_occupation.$invalid">Occupation is required</span>
 </div>
 </div>
 <div class="row">
-<div class="col-md-4 col-sm-4 col-xs-12 form-group">
+<div class="col-md-4 col-sm-4 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.guardian_name.$touched && formHolder.personalform.guardian_name.$invalid}">
   <label>Guardian Name:</label>
-  <input type="text" placeholder="Guardianname" class="form-control" name="guardian_name">
+  <input type="text" placeholder="Guardianname" class="form-control" name="guardian_name" required>
+  <span class="help-block" ng-show="formHolder.personalform.guardian_name.$touched && formHolder.personalform.guardian_name.$invalid">Occupation is required</span>
 </div>
 
-<div class="col-md-4 col-sm-4 col-xs-12 form-group">
+<div class="col-md-4 col-sm-4 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.guardian_address.$touched && formHolder.personalform.guardian_address.$invalid}">
   <label>Address:</label>
-  <input type="text" placeholder="Address" class="form-control" name="guardian_address">
+  <input type="text" placeholder="Address" class="form-control" name="guardian_address" required>
+  <span class="help-block" ng-show="formHolder.personalform.guardian_address.$touched && formHolder.personalform.guardian_address.$invalid">Address is required</span>
 </div>
 
-<div class="col-md-4 col-sm-4 col-xs-12 form-group">
+<div class="col-md-4 col-sm-4 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.guardian_contact_no.$touched && formHolder.personalform.guardian_contact_no.$invalid}">
   <label>Contact No:</label>
-  <input type="text" placeholder="Contact No" class="form-control" name="guardian_contact_no">
+  <input type="text" placeholder="Contact No" class="form-control" name="guardian_contact_no" required>
+   <span class="help-block" ng-show="formHolder.personalform.guardian_contact_no.$touched && formHolder.personalform.guardian_contact_no.$invalid">Contact Number is required</span>
 </div>
 </div>
-<div class="row">
+<div class="row" ng-class="{'has-error': formHolder.personalform.guardian_occupation.$touched && formHolder.personalform.guardian_occupation.$invalid}">
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
   <label>Occupation:</label>
-  <input type="text" placeholder="Occupation" class="form-control" name="guardian_occupation">
+  <input type="text" placeholder="Occupation" class="form-control" name="guardian_occupation" required>
+  <span class="help-block" ng-show="formHolder.personalform.guardian_occupation.$touched && formHolder.personalform.guardian_occupation.$invalid">Occupation is required</span>
 </div>
 </div>
 <div class="row">
-<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+<div class="col-md-12 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.relationships.$touched && formHolder.personalform.relationships.$invalid}">
   <label>Relationships:</label>
-  <input type="text" placeholder="Relationships" class="form-control" name="relationships">
+  <input type="text" placeholder="Relationships" class="form-control" name="relationships" required>
+  <span class="help-block" ng-show="formHolder.personalform.relationships.$touched && formHolder.personalform.relationships.$invalid">Relationships is required</span>
 </div>
 </div>
 <div class="ln_solid"></div>
