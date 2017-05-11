@@ -12,8 +12,10 @@ angular.module('students-module',['bootstrap-modal']).factory('form', function($
 			scope.student_info.id_number = 0;
 
 			scope.academic_info = {};
+			scope.academic_info.id_number = 0;
 			
 			scope.parental_info = {};
+			scope.parental_info.id_number = 0;			
 
 			scope.students = []; // list			
 
@@ -60,14 +62,14 @@ angular.module('students-module',['bootstrap-modal']).factory('form', function($
 			
 		};
 		
-		self.save = function(scope) {			
+		self.save = function(scope) {	
 			
-			if (validate(scope)) return;			
-
+			if (validate(scope)) return;
+			
 			$http({
 			  method: 'POST',
 			  url: 'handlers/student-save.php',
-			  data: scope.student_info
+			  data: {student_info: scope.student_info}
 			}).then(function mySucces(response) {
 				
 				self.list(scope);
