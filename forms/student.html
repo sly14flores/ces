@@ -6,12 +6,11 @@
 <div class="clearfix"></div>
 </div>
 
-<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-  <div class="form-group" ng-class="{'has-error': formHolder.personalform.lastname.$touched && formHolder.personalform.lastname.$invalid}">
+<div class="row">
+<div class="col-md-4 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.personalform.lastname.$touched && formHolder.personalform.lastname.$invalid}">
 	<label>Last Name:</label>
 	<input type="text" placeholder="Lastname" class="form-control" name="lastname" ng-model="student_info.lastname" required>  
 	<span class="help-block" ng-show="formHolder.personalform.lastname.$touched && formHolder.personalform.lastname.$invalid">Lastname is required</span>
-  </div>
 </div>
 
 <div class="col-md-4 col-sm-12 col-xs-12 form-group">
@@ -22,6 +21,7 @@
 <div class="col-md-4 col-sm-12 col-xs-12 form-group">
   <label>Middle Name:</label>
   <input type="text" placeholder="Middlename" class="form-control" name="middlename" ng-model="student_info.middlename">
+</div>
 </div>
 
 <div class="col-md-4 col-sm-12 col-xs-12">
@@ -233,12 +233,10 @@
   <label>Relationships:</label>
   <input type="text" placeholder="Relationships" class="form-control" name="relationships">
 </div>
-
-<div class="form-group">
-	<div class="col-md-4 col-sm-12 col-xs-12 form-group">
-	  <button class="btn btn-primary" type="button" ng-click="form.save(this)">Save</button>
-	  <button class="btn btn-primary" type="button" ng-click="form.list(this)">Cancel</button>
-	</div>
-  </div>
+<div class="ln_solid"></div>
+<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+	<button class="btn btn-primary" type="button" ng-click="form.save(this)">Save</button>
+	<button class="btn btn-primary" type="button" ng-click="form.list(this)">Cancel</button>
+</div>
 </form>
 <!-- end form for personal information -->

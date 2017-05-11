@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 11, 2017 at 02:35 AM
+-- Generation Time: May 11, 2017 at 05:05 PM
 -- Server version: 5.7.11
 -- PHP Version: 7.0.3
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `academic_info` (
   `id_number` int(11) NOT NULL,
+  `student_info` int(11) NOT NULL,
   `elem_name` varchar(50) DEFAULT NULL,
   `elem_address` varchar(50) DEFAULT NULL,
   `elem_year` varchar(10) DEFAULT NULL,
@@ -160,7 +161,8 @@ CREATE TABLE `yearlvl_info` (
 -- Indexes for table `academic_info`
 --
 ALTER TABLE `academic_info`
-  ADD KEY `IDNo` (`id_number`);
+  ADD KEY `IDNo` (`id_number`),
+  ADD KEY `student_info` (`student_info`);
 
 --
 -- Indexes for table `account_info`
@@ -236,7 +238,7 @@ ALTER TABLE `section_info`
 -- AUTO_INCREMENT for table `student_info`
 --
 ALTER TABLE `student_info`
-  MODIFY `id_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_number` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `yearlvl_info`
 --
@@ -250,7 +252,7 @@ ALTER TABLE `yearlvl_info`
 -- Constraints for table `academic_info`
 --
 ALTER TABLE `academic_info`
-  ADD CONSTRAINT `academic_info_ibfk_1` FOREIGN KEY (`id_number`) REFERENCES `student_info` (`id_number`) ON DELETE CASCADE;
+  ADD CONSTRAINT `academic_info_ibfk_1` FOREIGN KEY (`id_number`) REFERENCES `student_info` (`id_number`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `parental_info`
