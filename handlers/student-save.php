@@ -18,7 +18,7 @@ if (isset($_POST['student_info']['birthday'])) $_POST['student_info']['birthday'
 **
 */
 
-if ($_POST['id_number']) { // > 0 - update
+if ($_POST['student_info']['id_number']) { // > 0 - update
 	$student = $con->updateData($_POST['student_info'],'id_number');
 } else { // 0 - insert
 	unset($_POST['student_info']['id_number']);
