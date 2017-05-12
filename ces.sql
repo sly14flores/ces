@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 11, 2017 at 05:05 PM
+-- Generation Time: May 13, 2017 at 12:21 AM
 -- Server version: 5.7.11
 -- PHP Version: 7.0.3
 
@@ -39,6 +39,13 @@ CREATE TABLE `academic_info` (
   `tertiary_address` varchar(50) DEFAULT NULL,
   `tertiary_year` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `academic_info`
+--
+
+INSERT INTO `academic_info` (`id_number`, `student_info`, `elem_name`, `elem_address`, `elem_year`, `secondary_name`, `secondary_address`, `secondary_year`, `tertiary_name`, `tertiary_address`, `tertiary_year`) VALUES
+(1, 1, 'North Central School', 'San Fernando City', '2010', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -90,7 +97,8 @@ CREATE TABLE `course_info` (
 --
 
 CREATE TABLE `parental_info` (
-  `id_number` int(11) DEFAULT NULL,
+  `id_number` int(11) NOT NULL,
+  `student_info` int(11) NOT NULL,
   `father_name` varchar(50) DEFAULT NULL,
   `father_address` varchar(50) DEFAULT NULL,
   `father_contact_no` varchar(20) DEFAULT NULL,
@@ -105,6 +113,13 @@ CREATE TABLE `parental_info` (
   `guardian_occupation` varchar(50) DEFAULT NULL,
   `guardian_relation` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `parental_info`
+--
+
+INSERT INTO `parental_info` (`id_number`, `student_info`, `father_name`, `father_address`, `father_contact_no`, `father_occupation`, `mother_name`, `mother_address`, `mother_contact_no`, `mother_occupation`, `guardian_name`, `guardian_address`, `guardian_contact_no`, `guardian_occupation`, `guardian_relation`) VALUES
+(1, 1, 'Audie Flores', 'Tanqui', '0917', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -142,6 +157,13 @@ CREATE TABLE `student_info` (
   `civil_status` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `student_info`
+--
+
+INSERT INTO `student_info` (`id_number`, `lastname`, `firstname`, `middlename`, `contact_no`, `birthday`, `nationality`, `home_address`, `bh_address`, `bh_contact_no`, `course`, `year_level`, `section`, `sex`, `birth_place`, `civil_status`) VALUES
+(1, 'Flores', 'Sylvester', 'Bulilan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -161,7 +183,7 @@ CREATE TABLE `yearlvl_info` (
 -- Indexes for table `academic_info`
 --
 ALTER TABLE `academic_info`
-  ADD KEY `IDNo` (`id_number`),
+  ADD PRIMARY KEY (`id_number`) USING BTREE,
   ADD KEY `student_info` (`student_info`);
 
 --
@@ -186,7 +208,8 @@ ALTER TABLE `course_info`
 -- Indexes for table `parental_info`
 --
 ALTER TABLE `parental_info`
-  ADD KEY `IDNo` (`id_number`);
+  ADD PRIMARY KEY (`id_number`) USING BTREE,
+  ADD KEY `student_info` (`student_info`);
 
 --
 -- Indexes for table `section_info`
@@ -215,6 +238,11 @@ ALTER TABLE `yearlvl_info`
 --
 
 --
+-- AUTO_INCREMENT for table `academic_info`
+--
+ALTER TABLE `academic_info`
+  MODIFY `id_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `account_info`
 --
 ALTER TABLE `account_info`
@@ -230,6 +258,11 @@ ALTER TABLE `civilstatus_info`
 ALTER TABLE `course_info`
   MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `parental_info`
+--
+ALTER TABLE `parental_info`
+  MODIFY `id_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `section_info`
 --
 ALTER TABLE `section_info`
@@ -238,7 +271,7 @@ ALTER TABLE `section_info`
 -- AUTO_INCREMENT for table `student_info`
 --
 ALTER TABLE `student_info`
-  MODIFY `id_number` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `yearlvl_info`
 --
@@ -252,13 +285,13 @@ ALTER TABLE `yearlvl_info`
 -- Constraints for table `academic_info`
 --
 ALTER TABLE `academic_info`
-  ADD CONSTRAINT `academic_info_ibfk_1` FOREIGN KEY (`id_number`) REFERENCES `student_info` (`id_number`) ON DELETE CASCADE ON UPDATE NO ACTION;
+  ADD CONSTRAINT `academic_info_ibfk_1` FOREIGN KEY (`student_info`) REFERENCES `student_info` (`id_number`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `parental_info`
 --
 ALTER TABLE `parental_info`
-  ADD CONSTRAINT `parental_info_ibfk_1` FOREIGN KEY (`id_number`) REFERENCES `student_info` (`id_number`) ON DELETE CASCADE;
+  ADD CONSTRAINT `parental_info_ibfk_1` FOREIGN KEY (`student_info`) REFERENCES `student_info` (`id_number`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
