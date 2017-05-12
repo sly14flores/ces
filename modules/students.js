@@ -37,6 +37,15 @@ angular.module('students-module',['bootstrap-modal']).factory('form', function($
 
 		self.student = function(scope,row) {						
 			
+			scope.student_info = {};
+			scope.student_info.id_number = 0;
+
+			scope.academic_info = {};
+			scope.academic_info.id_number = 0;
+			
+			scope.parental_info = {};
+			scope.parental_info.id_number = 0;			
+			
 			$('#x_content').html('Loading...');
 			$('#x_content').load('forms/student.html',function() {
 				$timeout(function() { $compile($('#x_content')[0])(scope); },100);				
@@ -50,7 +59,9 @@ angular.module('students-module',['bootstrap-modal']).factory('form', function($
 				  data: {id_number: row.id_number}
 				}).then(function mySucces(response) {
 					
-					angular.copy(response.data, scope.student);
+					angular.copy(response.data['student_info'], scope.student_info);
+					angular.copy(response.data['academic_info'], scope.academic_info);
+					angular.copy(response.data['parental_info'], scope.parental_info);
 					scope.student.birthday = new Date(scope.student.birthday);
 					
 				}, function myError(response) {
@@ -69,7 +80,7 @@ angular.module('students-module',['bootstrap-modal']).factory('form', function($
 			$http({
 			  method: 'POST',
 			  url: 'handlers/student-save.php',
-			  data: {student_info: scope.student_info}
+			  data: {student_info: scope.student_info, academic_info: scope.academic_info, parental_info: scope.parental_info}
 			}).then(function mySucces(response) {
 				
 				self.list(scope);
