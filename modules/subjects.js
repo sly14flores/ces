@@ -47,7 +47,7 @@ angular.module('subjects-module',['bootstrap-modal']).factory('form', function($
 				  data: {id_number: row.id_number}
 				}).then(function mySucces(response) {
 					
-					angular.copy(response.data['subject_info'], scope.subject_info);
+					angular.copy(response.data, scope.subject_info);
 					
 				}, function myError(response) {
 					 
