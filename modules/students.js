@@ -1,20 +1,50 @@
-angular.module('students-module',[]).factory('form', function($compile,$timeout,$http) {
+angular.module('students-module',['bootstrap-modal']).factory('form', function($compile,$timeout,$http,bootstrapModal) {
 	
 	function form() {
 		
 		var self = this;
 		
 		self.data = function(scope) { // initialize data
+
+			scope.formHolder = {};		
+
+			scope.student_info = {};
+			scope.student_info.id_number = 0;
+
+			scope.academic_info = {};
+			scope.academic_info.id_number = 0;
 			
-			scope.student = {};
-			scope.student.id_number = 0;
-			scope.students = [];
+			scope.parental_info = {};
+			scope.parental_info.id_number = 0;			
+
+			scope.students = []; // list			
+
+		};
+
+		function validate(scope) {
+			
+			var controls = scope.formHolder.personalform.$$controls;
+			
+			angular.forEach(controls,function(elem,i) {
+				
+				if (elem.$$attr.$attr.required) elem.$touched = elem.$invalid;
+									
+			});
+
+			return scope.formHolder.personalform.$invalid;
 			
 		};
-		
-		var required = [];
 
 		self.student = function(scope,row) {						
+			
+			scope.student_info = {};
+			scope.student_info.id_number = 0;
+
+			scope.academic_info = {};
+			scope.academic_info.id_number = 0;
+			
+			scope.parental_info = {};
+			scope.parental_info.id_number = 0;			
 			
 			$('#x_content').html('Loading...');
 			$('#x_content').load('forms/student.html',function() {
@@ -22,29 +52,35 @@ angular.module('students-module',[]).factory('form', function($compile,$timeout,
 			});
 			
 			if (row != null) {
+				if (scope.$id > 2) scope = scope.$parent;				
 				$http({
 				  method: 'POST',
 				  url: 'handlers/student-edit.php',
 				  data: {id_number: row.id_number}
 				}).then(function mySucces(response) {
 					
-					angular.copy(response.data, scope.student);
+					angular.copy(response.data['student_info'], scope.student_info);
+					angular.copy(response.data['academic_info'], scope.academic_info);
+					angular.copy(response.data['parental_info'], scope.parental_info);
+					scope.student.birthday = new Date(scope.student.birthday);
 					
 				}, function myError(response) {
 					 
 				  // error
 					
 				});					
-			}
+			};					
 			
 		};
 		
-		self.save = function(scope) {
+		self.save = function(scope) {	
+			
+			if (validate(scope)) return;
 			
 			$http({
 			  method: 'POST',
 			  url: 'handlers/student-save.php',
-			  data: scope.student
+			  data: {student_info: scope.student_info, academic_info: scope.academic_info, parental_info: scope.parental_info}
 			}).then(function mySucces(response) {
 				
 				self.list(scope);
@@ -59,19 +95,27 @@ angular.module('students-module',[]).factory('form', function($compile,$timeout,
 		
 		self.delete = function(scope,row) {
 			
+		var onOk = function() {
+			
+			if (scope.$id > 2) scope = scope.$parent;			
+			
 			$http({
 			  method: 'POST',
 			  url: 'handlers/student-delete.php',
 			  data: {id_number: [row.id_number]}
 			}).then(function mySucces(response) {
-				
+
 				self.list(scope);
 				
 			}, function myError(response) {
 				 
 			  // error
 				
-			});				
+			});
+
+		};
+
+		bootstrapModal.confirm(scope,'Confirmation','Are you sure you want to delete this record?',onOk,function() {});			
 			
 		};
 		
@@ -84,12 +128,8 @@ angular.module('students-module',[]).factory('form', function($compile,$timeout,
 			  url: 'handlers/students-list.php',
 			}).then(function mySucces(response) {
 				
-				if (scope.$id > 2) {
-					scope = scope.$parent;
-					angular.copy(response.data, scope.students);
-				} else {
-					angular.copy(response.data, scope.students);					
-				}
+				if (scope.$id > 2) scope = scope.$parent;
+				angular.copy(response.data, scope.students);
 				
 			}, function myError(response) {
 				 
