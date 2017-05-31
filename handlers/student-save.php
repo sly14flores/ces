@@ -16,7 +16,10 @@ if (isset($_POST['student_info']['birthday'])) $_POST['student_info']['birthday'
 **
 */
 
+<<<<<<< HEAD
+=======
 $con = new pdo_db("student_info");
+>>>>>>> refs/remotes/origin/sly
 if ($_POST['student_info']['id_number']) { // > 0 - update
 	$student = $con->updateData($_POST['student_info'],'id_number');
 } else { // 0 - insert
