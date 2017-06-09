@@ -1,0 +1,28 @@
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+						  <th>Course</th>
+              <th>Descriptive Title</th>
+						  <th>Year Level</th>
+              <th>Lec.</th>
+						  <th>Lab.</th>
+						  <th>Units</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="subject in subjects">
+                          <td>{{subject.id_number}}</td>
+                          <td>{{subject.subject_name}}</td>
+                          <td>{{subject.descriptive_title}}</td>
+                          <td>{{subject.year_level}}</td>
+            						  <td>{{subject.lecture}}</td>
+            						  <td>{{subject.laboratory}}</td>
+            						  <td>{{subject.units}}</td>
+						  <td>
+						  <a href="javascript:;" style="margin-right: 5px;" ng-click="form.subject(this,subject)"><i class="fa fa-edit"></i></a>
+						  <a href="javascript:;" ng-click="form.delete(this,subject)"><i class="fa fa-remove"></i></a>
+						  </td>
+                        </tr>
+                      </tbody>
+                    </table>

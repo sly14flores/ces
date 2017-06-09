@@ -38,7 +38,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><img class="company-logo" src="images/npcmstlogo.png"> <span>Maritime</span></a>
+              <a href="index.php" class="site_title"><img class="company-logo" src="images/npcmstlogo.png"> <span>Maritime</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -62,8 +62,25 @@
               <div class="menu_section">
                 <h3>Menu</h3>
                 <ul class="nav side-menu">   
-                  <li><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
-				  <li><a href="students.html"><i class="fa fa-group"></i> Students</a></li>
+                  <li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
+                  <li><a><i class="fa fa-desktop"></i> Registrar <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="students.php"><i class="fa fa-group"></i> Students</a></li>
+                      <li><a href="#"><i class="fa fa-table"></i> Enrollment</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-cogs"></i> Maintenance <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="subjects.php"><i class="fa fa-book"></i> Subjects</a></li>
+                      <li><a href="#"><i class="fa fa-list-ul"></i> Courses</a></li>
+                      <li><a href="#"><i class="fa fa-sort-alpha-asc"></i> Sections</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-users"></i> Faculty <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="#"><i class="fa fa-user"></i> Instructors</a></li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
 
@@ -192,7 +209,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            <strong>Copyright &copy; 2017 Maritime Enrollment System.</strong> All Rights Reserved. 
+            <strong>Copyright &copy;  <?php echo date("Y"); ?> Maritime Enrollment System.</strong> All Rights Reserved. 
           </div>
           <div class="clearfix"></div>
         </footer>

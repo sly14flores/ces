@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 13, 2017 at 12:21 AM
+-- Generation Time: May 20, 2017 at 05:04 AM
 -- Server version: 5.7.11
 -- PHP Version: 7.0.3
 
@@ -167,6 +167,29 @@ INSERT INTO `student_info` (`id_number`, `lastname`, `firstname`, `middlename`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `subject_info`
+--
+
+CREATE TABLE `subject_info` (
+  `id_number` int(11) NOT NULL,
+  `subject_name` varchar(50) NOT NULL,
+  `descriptive_title` varchar(50) NOT NULL,
+  `year_level` varchar(50) NOT NULL,
+  `lecture` int(10) NOT NULL,
+  `laboratory` int(10) NOT NULL,
+  `units` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subject_info`
+--
+
+INSERT INTO `subject_info` (`id_number`, `subject_name`, `descriptive_title`, `year_level`, `lecture`, `laboratory`, `units`) VALUES
+(1, 'Math', 'Mathematics', '1', 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `yearlvl_info`
 --
 
@@ -228,6 +251,12 @@ ALTER TABLE `student_info`
   ADD KEY `civil_status` (`civil_status`);
 
 --
+-- Indexes for table `subject_info`
+--
+ALTER TABLE `subject_info`
+  ADD PRIMARY KEY (`id_number`);
+
+--
 -- Indexes for table `yearlvl_info`
 --
 ALTER TABLE `yearlvl_info`
@@ -271,6 +300,11 @@ ALTER TABLE `section_info`
 -- AUTO_INCREMENT for table `student_info`
 --
 ALTER TABLE `student_info`
+  MODIFY `id_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `subject_info`
+--
+ALTER TABLE `subject_info`
   MODIFY `id_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `yearlvl_info`

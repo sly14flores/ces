@@ -1,0 +1,55 @@
+ <!-- start form for personal information -->
+<form name="formHolder.subjectform" id="formHolder.subjectform">
+
+<div class="x_title">
+<small>Subject Information</small>
+<div class="clearfix"></div>
+</div>
+
+<div class="row">
+<div class="col-md-4 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.subjectform.subject_name.$touched && formHolder.subjectform.subject_name.$invalid}">
+	<label>Subject:</label>
+	<input type="text" placeholder="Subject" class="form-control" name="subject_name" ng-model="subject_info.subject_name" required>  
+	<span class="help-block" ng-show="formHolder.subjectform.subject_name.$touched && formHolder.subjectform.subject_name.$invalid">Subject is required</span>
+</div>
+
+<div class="col-md-4 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.subjectform.descriptive_title.$touched && formHolder.subjectform.descriptive_title.$invalid}">
+  <label>Descriptive Title:</label>
+  <input type="text" placeholder="Descriptive Title" class="form-control" name="descriptive_title" ng-model="subject_info.descriptive_title" required>  
+  <span class="help-block" ng-show="formHolder.subjectform.descriptive_title.$touched && formHolder.subjectform.descriptive_title.$invalid">Descriptive Title is required</span>
+</div>
+
+<div class="col-md-4 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.subjectform.year_level.$touched && formHolder.subjectform.descriptive_title.$invalid}">
+  <label>Year Level:</label>
+  <input type="text" placeholder="Year Level" class="form-control" name="year_level" ng-model="subject_info.year_level" required>  
+  <span class="help-block" ng-show="formHolder.subjectform.year_level.$touched && formHolder.subjectform.year_level.$invalid">Year Level is required</span>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-4 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.subjectform.lecture.$touched && formHolder.subjectform.lecture.$invalid}">
+  <label>Lecture:</label>
+  <input type="number" placeholder="Lecture" class="form-control" name="lecture" ng-model="subject_info.lecture" required>  
+  <span class="help-block" ng-show="formHolder.subjectform.lecture.$touched && formHolder.subjectform.lecture.$invalid">Lecture is required</span>
+</div>
+
+<div class="col-md-4 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.subjectform.laboratory.$touched && formHolder.subjectform.laboratory.$invalid}">
+  <label>Laboratory:</label>
+  <input type="number" placeholder="Laboratory" class="form-control" name="laboratory" ng-model="subject_info.laboratory" required>  
+  <span class="help-block" ng-show="formHolder.subjectform.laboratory.$touched && formHolder.subjectform.laboratory.$invalid">Laboratory is required</span>
+</div>
+
+<div class="col-md-4 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.subjectform.units.$touched && formHolder.subjectform.units.$invalid}">
+  <label>Units:</label>
+  <input type="number" placeholder="Units" class="form-control" name="units" ng-model="subject_info.units" required>  
+  <span class="help-block" ng-show="formHolder.subjectform.units.$touched && formHolder.subjectform.units.$invalid">Units is required</span>
+</div>
+</div>
+
+<div class="ln_solid"></div>
+<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+	<button class="btn btn-primary" type="button" ng-click="form.save(this)">Save</button>
+	<button class="btn btn-primary" type="button" ng-click="form.list(this)">Cancel</button>
+</div>
+</form>
+<!-- end form for subject information -->
