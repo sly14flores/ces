@@ -1,4 +1,4 @@
-angular.module('subjects-module',['bootstrap-modal']).factory('form', function($compile,$timeout,$http,bootstrapModal) {
+angular.module('courses-module',['bootstrap-modal']).factory('form', function($compile,$timeout,$http,bootstrapModal) {
 	
 	function form() {
 		
@@ -8,16 +8,16 @@ angular.module('subjects-module',['bootstrap-modal']).factory('form', function($
 
 			scope.formHolder = {};		
 
-			scope.subject_info = {};
-			scope.subject_info.id_number = 0;
+			scope.course_info = {};
+			scope.course_info.id_number = 0;
 
-			scope.subjects = []; // list			
+			scope.course = []; // list			
 
 		};
 
 		function validate(scope) {
 			
-			var controls = scope.formHolder.subjectform.$$controls;
+			var controls = scope.formHolder.courseform.$$controls;
 			
 			angular.forEach(controls,function(elem,i) {
 				
@@ -25,17 +25,17 @@ angular.module('subjects-module',['bootstrap-modal']).factory('form', function($
 									
 			});
 
-			return scope.formHolder.subjectform.$invalid;
+			return scope.formHolder.courseform.$invalid;
 			
 		};
 
-		self.subject = function(scope,row) {						
+		self.course = function(scope,row) {						
 			
-			scope.subject_info = {};
-			scope.subject_info.id_number = 0;
+			scope.course_info = {};
+			scope.course_info.id_number = 0;
 
 			$('#x_content').html('Loading...');
-			$('#x_content').load('forms/subject.html',function() {
+			$('#x_content').load('forms/course.html',function() {
 				$timeout(function() { $compile($('#x_content')[0])(scope); },100);				
 			});
 			
@@ -43,11 +43,11 @@ angular.module('subjects-module',['bootstrap-modal']).factory('form', function($
 				if (scope.$id > 2) scope = scope.$parent;				
 				$http({
 				  method: 'POST',
-				  url: 'handlers/subject-edit.php',
+				  url: 'handlers/course-edit.php',
 				  data: {id_number: row.id_number}
 				}).then(function mySucces(response) {
 					
-					angular.copy(response.data, scope.subject_info);
+					angular.copy(response.data, scope.course_info);
 					
 				}, function myError(response) {
 					 
@@ -64,8 +64,8 @@ angular.module('subjects-module',['bootstrap-modal']).factory('form', function($
 			
 			$http({
 			  method: 'POST',
-			  url: 'handlers/subject-save.php',
-			  data: {subject_info: scope.subject_info}
+			  url: 'handlers/course-save.php',
+			  data: {course_info: scope.course_info}
 			}).then(function mySucces(response) {
 				
 				self.list(scope);
@@ -86,7 +86,7 @@ angular.module('subjects-module',['bootstrap-modal']).factory('form', function($
 			
 			$http({
 			  method: 'POST',
-			  url: 'handlers/subject-delete.php',
+			  url: 'handlers/course-delete.php',
 			  data: {id_number: [row.id_number]}
 			}).then(function mySucces(response) {
 
@@ -106,14 +106,14 @@ angular.module('subjects-module',['bootstrap-modal']).factory('form', function($
 		
 		self.list = function(scope) {
 
-			scope.subject = {};
-			scope.subject.id_number = 0;			
+			scope.course = {};
+			scope.course.id_number = 0;			
 			$http({
 			  method: 'POST',
-			  url: 'handlers/subjects-list.php',
+			  url: 'handlers/courses-list.php',
 			}).then(function mySucces(response) {
 				
-				scope.subjects = response.data;
+				scope.courses = response.data;
 				
 			}, function myError(response) {
 				 
@@ -122,7 +122,7 @@ angular.module('subjects-module',['bootstrap-modal']).factory('form', function($
 			});
 			
 			$('#x_content').html('Loading...');
-			$('#x_content').load('lists/subjects.html', function() {
+			$('#x_content').load('lists/courses.html', function() {
 				$timeout(function() { $compile($('#x_content')[0])(scope); },100);				
 			});				
 			

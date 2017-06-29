@@ -72,8 +72,8 @@
                   <li><a><i class="fa fa-cogs"></i> Maintenance <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="subjects.php"><i class="fa fa-book"></i> Subjects</a></li>
-                      <li><a href="#"><i class="fa fa-list-ul"></i> Courses</a></li>
-                      <li><a href="#"><i class="fa fa-sort-alpha-asc"></i> Sections</a></li>
+                      <li><a href="courses.php"><i class="fa fa-list-ul"></i> Courses</a></li>
+                      <li><a href="sections.php"><i class="fa fa-sort-alpha-asc"></i> Sections</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-users"></i> Faculty <span class="fa fa-chevron-down"></span></a>
@@ -200,7 +200,8 @@
         <div class="right_col" role="main">
             <div class="x_content bs-example-popovers">
                   <div class="alert alert-info alert-dismissible fade in">
-                    <h1>Welcome!</h1> <h4>Introducing Maritime Enrollment System.</h4>
+                    <h1>Welcome!</h1> <h4>Introducing Northern Philippines College for Maritime, Science and Technology, Inc.</h4>
+                    <small>RomyFats Enrollment System v4.0</small>
                   </div>
               </div>
         </div>
@@ -209,7 +210,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            <strong>Copyright &copy;  <?php echo date("Y"); ?> Maritime Enrollment System.</strong> All Rights Reserved. 
+            <strong>Copyright &copy;  <?php echo date("Y"); ?> RomyFats Enrollment System v4.0.</strong> All Rights Reserved. 
           </div>
           <div class="clearfix"></div>
         </footer>

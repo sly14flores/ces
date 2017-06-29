@@ -1,0 +1,19 @@
+                    <table class="table">
+                      <thead>
+                        <tr>
+            				    <th>#</th>
+                        <th>Section Name</th>
+                        <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="section in sections">
+                          <td>{{section.id_number}}</td>
+                          <td>{{section.section_name}}</td>
+						  <td>
+						  <a href="javascript:;" style="margin-right: 5px;" ng-click="form.section(this,section)"><i class="fa fa-edit"></i></a>
+						  <a href="javascript:;" ng-click="form.delete(this,section)"><i class="fa fa-remove"></i></a>
+						  </td>
+                        </tr>
+                      </tbody>
+                    </table>

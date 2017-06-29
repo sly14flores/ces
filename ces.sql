@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 20, 2017 at 05:04 AM
+-- Generation Time: Jun 24, 2017 at 02:48 PM
 -- Server version: 5.7.11
 -- PHP Version: 7.0.3
 
@@ -66,7 +66,7 @@ CREATE TABLE `account_info` (
 --
 
 INSERT INTO `account_info` (`id_number`, `firstname`, `lastname`, `username`, `password`) VALUES
-(1, 'Joel Niko', 'Noti', 'admin', 'admin');
+(1, 'John Paul', 'Balanon', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -86,9 +86,19 @@ CREATE TABLE `civilstatus_info` (
 --
 
 CREATE TABLE `course_info` (
-  `course_id` int(11) NOT NULL,
-  `course_name` varchar(50) DEFAULT NULL
+  `id_number` int(11) NOT NULL,
+  `course_department` varchar(100) NOT NULL,
+  `course_code` varchar(50) NOT NULL,
+  `course_name` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `course_info`
+--
+
+INSERT INTO `course_info` (`id_number`, `course_department`, `course_code`, `course_name`) VALUES
+(1, 'BSIT', 'IT', 'Information Technology'),
+(2, 'Sample', 'sample', 'sample');
 
 -- --------------------------------------------------------
 
@@ -128,9 +138,18 @@ INSERT INTO `parental_info` (`id_number`, `student_info`, `father_name`, `father
 --
 
 CREATE TABLE `section_info` (
-  `section_id` int(11) NOT NULL,
-  `section_name` text
+  `id_number` int(11) NOT NULL,
+  `section_name` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `section_info`
+--
+
+INSERT INTO `section_info` (`id_number`, `section_name`) VALUES
+(1, 'Alpha'),
+(2, 'Bravo'),
+(3, 'Charlie');
 
 -- --------------------------------------------------------
 
@@ -185,7 +204,8 @@ CREATE TABLE `subject_info` (
 --
 
 INSERT INTO `subject_info` (`id_number`, `subject_name`, `descriptive_title`, `year_level`, `lecture`, `laboratory`, `units`) VALUES
-(1, 'Math', 'Mathematics', '1', 1, 1, 1);
+(1, 'Math', 'Mathematics', '1992', 1, 2, 3),
+(2, 'mt_1', 'Math', '1', 2, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -225,7 +245,7 @@ ALTER TABLE `civilstatus_info`
 -- Indexes for table `course_info`
 --
 ALTER TABLE `course_info`
-  ADD PRIMARY KEY (`course_id`);
+  ADD PRIMARY KEY (`id_number`);
 
 --
 -- Indexes for table `parental_info`
@@ -238,7 +258,7 @@ ALTER TABLE `parental_info`
 -- Indexes for table `section_info`
 --
 ALTER TABLE `section_info`
-  ADD PRIMARY KEY (`section_id`);
+  ADD PRIMARY KEY (`id_number`);
 
 --
 -- Indexes for table `student_info`
@@ -285,7 +305,7 @@ ALTER TABLE `civilstatus_info`
 -- AUTO_INCREMENT for table `course_info`
 --
 ALTER TABLE `course_info`
-  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `parental_info`
 --
@@ -295,7 +315,7 @@ ALTER TABLE `parental_info`
 -- AUTO_INCREMENT for table `section_info`
 --
 ALTER TABLE `section_info`
-  MODIFY `section_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `student_info`
 --
@@ -305,7 +325,7 @@ ALTER TABLE `student_info`
 -- AUTO_INCREMENT for table `subject_info`
 --
 ALTER TABLE `subject_info`
-  MODIFY `id_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `yearlvl_info`
 --

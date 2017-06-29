@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Maritime | Subjects</title>
+    <title>Maritime | Courses</title>
 	<link rel="icon" type="image/ico" href="favicon.ico">	
 
     <!-- Bootstrap -->
@@ -32,7 +32,7 @@
     <link href="css/style.css" rel="stylesheet">	
   </head>
 
-  <body class="nav-md" id="main-body" ng-app="subjects" ng-controller="subjectsCtrl" account-profile>
+  <body class="nav-md" id="main-body" ng-app="courses" ng-controller="coursesCtrl" account-profile>
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -201,7 +201,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Subjects</h3>
+                <h3>Courses</h3>
               </div>
 
               <div class="title_right">
@@ -229,8 +229,8 @@
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-tasks"></i></a>
                         <ul class="dropdown-menu" role="menu">
-                          <li><a href="javascript:;" ng-click="form.subject(this,null)">Add New Subject</a></li>
-                          <li><a href="javascript:;" ng-click="form.list(this)">Subject List</a></li>
+                          <li><a href="javascript:;" ng-click="form.course(this,null)">Add New Course</a></li>
+                          <li><a href="javascript:;" ng-click="form.list(this)">Course List</a></li>
                         </ul>
                       </li>
                       <!--<li><a class="close-link"><i class="fa fa-close"></i></a></li>-->
@@ -301,8 +301,8 @@
     <script src="modules/fullscreen.js"></script>
     <script src="modules/bootstrap-modal.js"></script>
     <script src="modules/account.js"></script>
-    <script src="modules/subjects.js"></script>
-    <script src="controllers/subjects.js"></script>
+    <script src="modules/courses.js"></script>
+    <script src="controllers/courses.js"></script>
 	
   </body>
 </html>

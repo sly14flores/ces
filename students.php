@@ -248,7 +248,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            <strong>Copyright &copy; <?php echo date("Y"); ?> Maritime Enrollment System.</strong> All Rights Reserved. 
+            <strong>Copyright &copy; <?php echo date("Y"); ?> RomyFats Enrollment System v4.0.</strong> All Rights Reserved. 
           </div>
           <div class="clearfix"></div>
         </footer>
