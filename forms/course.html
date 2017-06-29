@@ -1,0 +1,35 @@
+ <!-- start form for personal information -->
+<form name="formHolder.courseform" id="formHolder.courseform">
+
+<div class="x_title">
+<small>Course Information</small>
+<div class="clearfix"></div>
+</div>
+
+<div class="row">
+<div class="col-md-4 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.courseform.course_department.$touched && formHolder.courseform.course_department.$invalid}">
+	<label>College/Department:</label>
+	<input type="text" placeholder="College / Department" class="form-control" name="course_department" ng-model="course_info.course_department" required>  
+	<span class="help-block" ng-show="formHolder.courseform.course_department.$touched && formHolder.courseform.course_department.$invalid">College/Department is required</span>
+</div>
+
+<div class="col-md-4 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.courseform.course_code.$touched && formHolder.courseform.course_code.$invalid}">
+	<label>Course Code:</label>
+	<input type="text" placeholder="Course Code" class="form-control" name="course_code" ng-model="course_info.course_code" required>  
+	<span class="help-block" ng-show="formHolder.courseform.course_code.$touched && formHolder.courseform.course_code.$invalid">Course Code is required</span>
+</div>
+
+<div class="col-md-4 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.courseform.course_name.$touched && formHolder.courseform.course_name.$invalid}">
+	<label>Course Name:</label>
+	<input type="text" placeholder="Course Name" class="form-control" name="course_name" ng-model="course_info.course_name" required>  
+	<span class="help-block" ng-show="formHolder.courseform.course_name.$touched && formHolder.courseform.course_name.$invalid">Course Name is required</span>
+</div>
+</div>
+
+<div class="ln_solid"></div>
+<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+	<button class="btn btn-primary" type="button" ng-click="form.save(this)">Save</button>
+	<button class="btn btn-primary" type="button" ng-click="form.list(this)">Cancel</button>
+</div>
+</form>
+<!-- end form for course information -->

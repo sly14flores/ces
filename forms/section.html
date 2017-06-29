@@ -1,0 +1,23 @@
+ <!-- start form for personal information -->
+<form name="formHolder.sectionform" id="formHolder.sectionform">
+
+<div class="x_title">
+<small>Section Information</small>
+<div class="clearfix"></div>
+</div>
+
+<div class="row">
+<div class="col-md-4 col-sm-12 col-xs-12 form-group" ng-class="{'has-error': formHolder.sectionform.section_name.$touched && formHolder.sectionform.section_name.$invalid}">
+	<label>Section Name:</label>
+	<input type="text" placeholder="Section Name" class="form-control" name="section_name" ng-model="section_info.section_name" required>  
+	<span class="help-block" ng-show="formHolder.sectionform.section_name.$touched && formHolder.sectionform.section_name.$invalid">Section Name is required</span>
+</div>
+</div>
+
+<div class="ln_solid"></div>
+<div class="col-md-4 col-sm-12 col-xs-12 form-group">
+	<button class="btn btn-primary" type="button" ng-click="form.save(this)">Save</button>
+	<button class="btn btn-primary" type="button" ng-click="form.list(this)">Cancel</button>
+</div>
+</form>
+<!-- end form for section information -->
